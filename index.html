@@ -9,6 +9,11 @@
 	<button class="talk">talk</button>
 	<h3 class="content"></h3>
 
+	<audio id="playMusic">
+		<source src="https://raw.githubusercontent.com/himalayasingh/music-player-1/master/music/2.mp3" type="audio/mpeg">
+		Your browser does not support the audio element
+	</audio>
+
 	<script type="text/javascript">
 		const btn = document.querySelector('.talk');
 const content = document.querySelector('.content');
@@ -70,10 +75,16 @@ function readOutLoud(message) {
 	} else if (message.includes('open the google')) {
 		speech.text = 'okay your command is on the way';
 		setTimeout(function() {
-			window.location.href = 'https://www.google.com/';
+			window.open('https://www.google.com/', '_blank');
 		}, 3000);
 	} else if (message.includes('who is the most strongest fanny user in mobile legends')) {
 		speech.text = 'The most strongest fanny user in Mobile Legend is Renz Paharito';
+	} else if (message.includes('play some music')) {
+		const music = document.getElementById('playMusic');
+		music.play();
+	} else if (message.includes('pause the music')) {
+		const music = document.getElementById('playMusic');
+		music.pause();
 	}
 	else {
 		speech.text = 'I dont know that one';
