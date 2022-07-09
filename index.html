@@ -19,6 +19,7 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			flex-direction: column;
 			background: #eee;
 		}
 
@@ -32,13 +33,24 @@
 			box-shadow: 1px 2px 1px #2b2b2b,
 						-1px -1px 1px #ddd;
 			cursor: pointer;
+			margin-bottom: 15px;
 
+		}
+
+		.content {
+			background: #2b2b2b;
+			padding: 10px 15px;
+			color: #f1f1f1;
+			font-size: 1.2rem;
+			font-weight: 500;
+			border-radius: 100px;
+			text-transform: capitalize;
 		}
 	</style>
 </head>
 <body>
 	<button class="talk">talk</button>
-	<h3 class="content"></h3>
+	<h3 class="content">Zern Codes</h3>
 
 	<audio id="playMusic">
 		<source src="https://raw.githubusercontent.com/himalayasingh/music-player-1/master/music/2.mp3" type="audio/mpeg">
@@ -116,6 +128,14 @@ function readOutLoud(message) {
 	} else if (message.includes('pause the music')) {
 		const music = document.getElementById('playMusic');
 		music.pause();
+	} else if (message.includes('who made you')) {
+		speech.text = 'I am made by Renz Paharito';
+	} else if (message.includes('sino ang gumawa sayo')) {
+		speech.text = 'sea Renz Paharito';
+	} else if (message.includes('do you believe in god')) {
+		speech.text = 'No i dont believe in god its because i am not a human like you and i dont know what god is';
+	} else if (message.includes('why do i need to study')) {
+		speech.text = 'Studying is not just important for educational development, but also builds personal skills. Having good study skills can improve your confidence, competence, and self-esteem. As well as helps reduce stress and anxiety around deadlines and exams';
 	}
 	else {
 		speech.text = 'I dont know that one';
